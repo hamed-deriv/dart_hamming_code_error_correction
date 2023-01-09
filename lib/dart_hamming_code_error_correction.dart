@@ -19,9 +19,10 @@ String getCorrectData(String data, String correction) {
   final List<int> dataUnits = data.codeUnits.toList();
 
   for (var index = 0; index < correction.length; index++) {
-    if (String.fromCharCode(dataUnits[index]) == '1') {
-      final int currectionIndex = math.pow(index, 2).toInt();
+    if (correction.codeUnitAt(index) == 49) {
+      int currectionIndex = math.pow(index, 2).toInt();
 
+      currectionIndex = currectionIndex == 0 ? 1 : currectionIndex;
       dataUnits[currectionIndex] = dataUnits[currectionIndex] == 49 ? 48 : 49;
     }
   }
