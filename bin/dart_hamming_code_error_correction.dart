@@ -1,15 +1,15 @@
 import 'package:dart_hamming_code_error_correction/dart_hamming_code_error_correction.dart';
 
 void main(List<String> arguments) {
-  final String sampleData = '10001010011101100';
-  final String reduceBinary = reduce(getBits(sampleData));
+  const String sampleData = '10001010011101100';
+  final String reduceBinarySampleData = reduce(getNonZeroIndices(sampleData));
 
   print(sampleData);
-  print(reduceBinary);
+  print(reduceBinarySampleData);
 
-  final String result = getCorrectData(sampleData, reduceBinary);
-  final String reduceBinary2 = reduce(getBits(result));
+  final String result = getCorrectData(sampleData, reduceBinarySampleData);
+  final String reduceBinaryResult = reduce(getNonZeroIndices(result));
 
   print(result);
-  print(reduceBinary2);
+  print(reduceBinaryResult);
 }

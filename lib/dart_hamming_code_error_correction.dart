@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-List<int> getBits(String data) {
+List<int> getNonZeroIndices(String data) {
   final List<int> nonZeroIndices = <int>[];
 
   for (int index = 0; index < data.length; index++) {
@@ -13,12 +13,12 @@ List<int> getBits(String data) {
 }
 
 String reduce(List<int> data) =>
-    data.reduce((value, element) => value ^ element).toRadixString(2);
+    data.reduce((int value, int element) => value ^ element).toRadixString(2);
 
 String getCorrectData(String data, String correction) {
   final List<int> dataUnits = data.codeUnits.toList();
 
-  for (var index = 0; index < correction.length; index++) {
+  for (int index = 0; index < correction.length; index++) {
     if (correction.codeUnitAt(index) == 49) {
       int currectionIndex = math.pow(index, 2).toInt();
 
