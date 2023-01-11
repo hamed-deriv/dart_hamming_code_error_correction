@@ -16,7 +16,7 @@ void main() {
 
   test('getCorrectData', () {
     expect(
-      getCorrectData('10001010011101100', '1001'),
+      getCorrectedData('10001010011101100', '1001'),
       equals('11001010001101100'),
     );
   });

@@ -7,7 +7,7 @@ void main(List<String> arguments) {
   print(sampleData);
   print(reduceBinarySampleData);
 
-  final String result = getCorrectData(sampleData, reduceBinarySampleData);
+  final String result = getCorrectedData(sampleData, reduceBinarySampleData);
   final String reduceBinaryResult = reduce(getNonZeroIndices(result));
 
   print(result);

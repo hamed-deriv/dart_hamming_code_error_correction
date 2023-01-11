@@ -1,21 +1,16 @@
 import 'dart:math' as math;
 
-List<int> getNonZeroIndices(String data) {
-  final List<int> nonZeroIndices = <int>[];
-
-  for (int index = 0; index < data.length; index++) {
-    if (String.fromCharCode(data.codeUnitAt(index)) == '1') {
-      nonZeroIndices.add(index);
-    }
-  }
-
-  return nonZeroIndices;
-}
+List<int> getNonZeroIndices(String data) => data.codeUnits
+    .asMap()
+    .entries
+    .where((MapEntry<int, int> item) => item.value == 49)
+    .map((MapEntry<int, int> item) => item.key)
+    .toList();
 
 String reduce(List<int> data) =>
     data.reduce((int value, int element) => value ^ element).toRadixString(2);
 
-String getCorrectData(String data, String correction) {
+String getCorrectedData(String data, String correction) {
   final List<int> dataUnits = data.codeUnits.toList();
 
   for (int index = 0; index < correction.length; index++) {
